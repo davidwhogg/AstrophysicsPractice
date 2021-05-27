@@ -1,9 +1,9 @@
-\documentclass[12pt,letterpaper]{book}
+\documentclass[letterpaper]{book}
 \usepackage[utf8]{inputenc}
 
 % 1. The latex book format has pages too short
 \addtolength{\topmargin}{-0.70in}
-\addtolength{\textheight}{2.00in}
+\setlength{\textheight}{2\textwidth}
 % 2. If you want to scroll well, you need to center the text:
 \setlength{\oddsidemargin}{3.25in}
 \addtolength{\oddsidemargin}{-0.5\textwidth}
@@ -11,6 +11,10 @@
 % 3. Latex is broken
 \renewcommand{\baselinestretch}{1.06}
 \sloppy\sloppypar\raggedbottom\frenchspacing
+% 4. Always with the headings
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter. #1}{\thechapter. #1}} 
+\newcommand{\chaptermarkstar}[1]{\markboth{#1}{#1}} 
 
 \title{\textbf{The Practice of Astrophysics}}
 \author{anonymous}
@@ -23,15 +27,16 @@
 \cleardoublepage
 \tableofcontents
 
-\chapter*{Preface}
-\addcontentsline{toc}{chapter}{Preface}
+\chapter*{Preface}%
+\chaptermarkstar{Preface}\addcontentsline{toc}{chapter}{Preface}
 
 For the last few decades there has been a conversation going on in the astrophysics community about the disconnect between what we teach in the standard undergraduate and graduate core, and what we use in our day-to-day work as researchers.
 Visualization! That's never taught to you, and many figures in many papers are hard to read.
 Teaching! We are hired to teach but don't (without extra effort) obtain any training in education.
 Statistics! We learn the folk activities of our advisors and supervisors, while doing research, and often wrongly.
-These conversations lead to enthusiastic calls to revise the curriculum and teach the things that an astrophysicist \emph{really needs to know}. And yet.
+Mentoring! We have enormous responsibilities to our students and yet we learn only by doing; that's not right, especially when things are going wrong.
 
+These conversations about the shortcomings of our academic educations lead to enthusiastic calls to revise the curriculum and teach the things that an astrophysicist \emph{really needs to know}.
 And yet: What has changed? In my institution and many others, the core requirements for the PhD (prior to admission and within the program) have barely changed in these same few decades.
 
 People (especially parents of physics-oriented students) often ask me what is the most important thing to know or learn if you want to become a scientist.
@@ -41,22 +46,69 @@ When we say that ``we know the age of the Universe to better than one percent'' 
 We produce writing.
 Astrophysicists are writers.
 We are also designers, coders, builders, data-processors, statisticians, visualizers, mentors, teachers, advisors, speakers, proposers, and referees.
-But even within these activities many of them connect to writing; these activities are often in the service of writing and publishing papers, which are the long-lasting products of our research.
+But even these myriad activities are often or even primarily in the service of writing and publishing papers, which are the long-lasting products of our research.
 
-There is another category of long-lasting product, though, and that is \emph{people}:
+In this sense, astrophysics is one of the \emph{humanities}.
+It is a written literature, written by humans, recording what humans have learned, and responding to what humans want to know.
+
+There is another category of long-lasting product, though, in addition to our writing, and that is \emph{people}:
 We educate, train, mentor, and launch people into careers in academia, in schools, in national labs, in technology companies, in policy positions, and in government.
 This is probably the most important part of what we do, since it combines all the challenges of humanity with ethical and moral complexities, perhaps even more extreme than in other areas because \emph{astronomy has no point in itself}.
 We only do astronomy because people want to do astronomy, and want to have astronomy done.
 If people lost interest in this, we would have no role in society.
 There is no urgent human need for astronomy, beyond the urgent human need to understand everything that can be understood.
+For these reasons---and maybe to stay consistent with Kant's categorical imperative\footnote{Kant's categorical imperative~\cite{} has multiple different versions or statements that are hard to reconcile. The statement of the imperative that I consider to be one of the few undeniably true discoveries in ethics is that people should be the \emph{ends} of our work, not the \emph{means} of our work. This principle will come up again in various places in this book, especially Chapters~??. All that said, I am not a philosopher!}---we have to make \emph{people} the focus of what we do.
+We do astrophysics for people, and we do astrophysics with people, and the astrophysics we do is in the service of the lives, interests, and careers of those people.
+
+What makes me qualified to write this book?
+I have had a long career doing research in astrophysics, and teaching physics and mentoring early-career astrophysicists.
+I have only done some parts of this job well.
+In some sense, this book is inspired and informed by many of the mistakes I have made---mistakes in how I wrote papers, mistakes in what I put in grant proposals, mistakes in how I managed my research budget, mistakes in the classroom, and mistakes in how I mentored graduate students and postdocs.
+I will try to be specific about some of these mistakes in what follows.
+Some of them caused me anguish.
+There is a sense in which being an academic is the greatest privilege in the world: We can work on what we want, how we want, with whoever we want.
+But there is an equally true sense in which being an academic is a stressful job: We have no-one to blame but ourselves when things go wrong.
+Academic astrophysics is a paradigm of the existential dystopia\footnote{In college I was taught that anguish, abandonment, and despair are the three principal existential experiences~\cite{}.}.
+
+What will you get out of this book?
+This book won't solve the fundamental problem that opens this Preface: 
+After reading this book you will not know how to write, nor how to teach, nor how to mentor, nor how to perform and visualize data analyses.
+This book is intended to start \emph{conversations} about these things.
+It could be used (selectively I presume) in a semester-long or year-long course for graduate students and research-interested undergraduates, to supplement the standard core of classes about mechanics, thermodynamics, radiative processes, and so on.
+
+One of the things I love about the content of this book is the following:
+You will never be \emph{done} learning these things.
+Some areas of human knowledge can be mastered.
+For example, after 30 years, I think I know everything I will ever need to know about linear algebra.\footnote{I don't mean to be tough on linear algebra here. It is incredibly rich and rewarding subject, and it really \emph{has} taken me 30 years to learn it. I just mean that linear algebra has a clearly defined \emph{scope}, unlike, say, advising graduate students, or writing scientific abstracts.}
+But I am certain that even 20 years from now---if I am still here---I will still be learning things about writing, about teaching, about advising, about making figures, about designing projects, and about giving talks.
+That is, these subjects are unbounded in their scope and no document or project or interaction or result is ever \emph{perfect}.
+(As we will see in Chapter~\ref{ch:papers}, I don't even think perfection is a goal!)
+You will always have more to learn about all these things.
+That makes it hard to set the scope for a book like this!
+And perhaps---circling back to where we started---that makes it hard to bring these things into the curriculum of astrophysics: If we did, where would we start and where would we end?
+It sure isn't obvious. And no two astronomers will agree. Here's my take.
 
 \part{Reading and writing}%
 
-\chapter{How to read a scientific paper}
+\chapter{How to read a scientific paper}\label{ch:reading}
 
-\chapter{Writing abstracts and titles}
+HOGG: Note: People who teach writing often say that the best way to learn to write is to spend a lot of time reading.
 
-\chapter{Writing scientific papers}
+\chapter{Writing titles and abstracts}\label{ch:abstracts}
+
+\chapter{Writing scientific papers}\label{ch:papers}
+
+HOGG: Be sure to mention that you are done when you are 99-percent done!
+
+\chapter{Typesetting and typography}
+
+HOGG: dashes!
+
+HOGG: Line lengths!
+
+HOGG: Two-column is bad!
+
+HOGG: Accessibility considerations.
 
 \chapter{Grant proposals}
 
