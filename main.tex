@@ -1,3 +1,9 @@
+% STYLE NOTES
+% -----------
+% - Refer to the reader's colleagues as researchers or investigators?
+% - Use second person?
+% - Be clear that we are always ranting.
+
 \documentclass[letterpaper]{book}
 \usepackage[utf8]{inputenc}
 
@@ -12,6 +18,7 @@
 \renewcommand{\baselinestretch}{1.06}
 \sloppy\sloppypar\raggedbottom\frenchspacing
 % 4. Always with the headings
+\renewcommand{\MakeUppercase}[1]{{#1}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
 \renewcommand{\chaptermark}[1]{\markboth{\thechapter. #1}{\thechapter. #1}} 
 \newcommand{\chaptermarkstar}[1]{\markboth{#1}{#1}} 
@@ -76,17 +83,28 @@ After reading this book you will not know how to write, nor how to teach, nor ho
 This book is intended to start \emph{conversations} about these things.
 It could be used (selectively I presume) in a semester-long or year-long course for graduate students and research-interested undergraduates, to supplement the standard core of classes about mechanics, thermodynamics, radiative processes, and so on.
 
-One of the things I love about the content of this book is the following:
+One of the things I love about the subjects here is the following:
 You will never be \emph{done} learning these things.
 Some areas of human knowledge can be mastered.
 For example, after 30 years, I think I know everything I will ever need to know about linear algebra.\footnote{I don't mean to be tough on linear algebra here. It is incredibly rich and rewarding subject, and it really \emph{has} taken me 30 years to learn it. I just mean that linear algebra has a clearly defined \emph{scope}, unlike, say, advising graduate students, or writing scientific abstracts.}
-But I am certain that even 20 years from now---if I am still here---I will still be learning things about writing, about teaching, about advising, about making figures, about designing projects, and about giving talks.
+But I am certain that even 20 years from now---if I am still here---I will still be learning things about writing, about teaching, about advising, about making figures, about packaging software, about designing projects, and about giving talks.
 That is, these subjects are unbounded in their scope and no document or project or interaction or result is ever \emph{perfect}.
 (As we will see in Chapter~\ref{ch:papers}, I don't even think perfection is a goal!)
 You will always have more to learn about all these things.
 That makes it hard to set the scope for a book like this!
 And perhaps---circling back to where we started---that makes it hard to bring these things into the curriculum of astrophysics: If we did, where would we start and where would we end?
 It sure isn't obvious. And no two astronomers will agree. Here's my take.
+
+\chapter*{Acknowledgements}%
+\chaptermarkstar{Acknowledgements}\addcontentsline{toc}{chapter}{Acknowledgements}
+
+The idea for this book came up during the pandemic years, in conversations with Adrian Price-Whelan (Flatiron). He also helped a lot, particularly on the subjects of...
+
+Astronomical Data Group
+
+My PhD Students. My postdocs.
+
+My undergraduate students.
 
 \part{Reading and writing}%
 
@@ -96,9 +114,55 @@ HOGG: Note: People who teach writing often say that the best way to learn to wri
 
 \chapter{Writing titles and abstracts}\label{ch:abstracts}
 
+I can't emphasize this enough: \emph{The title and abstract are the most important parts of any scientific paper}.
+It is on the basis of the title and abstract that your paper gets read in the first place.
+And often when an investigator is performing a literature search, they look only at the abstract to decide on the relevance of the paper.
+Sometimes only the title!
+For this reason, the title and abstract of a paper must be written with extreme care, and not hastily at the end of the process.
+
+I want to emphasize this again: It is a big mistake to leave the writing of the abstract to the end of your writing process.
+I see this mistake made a lot:
+``How can I write my abstract? I haven't finished writing the paper. I don't know what my final conclusions are!''
+This reasoning makes two mistakes:
+The first is that it implies that the main point of the abstract is to communicate the \emph{results} of your work.
+That's not right.
+The abstract summarizes the whole paper, including context, project design, data taking, and methods, almost all of which are set quite early in the project, usually way before any writing (but see below).
+The second mistake is that you don't know your results until you are done.
+Okay, maybe you don't know whether you are going to get 65.1 or 65.2 for the numerical value of the Hubble constant.
+But you do know that you will get \emph{some number} for that constant, and you know that it will be on the low side.
+
+Why have I separated the writing of titles and abstracts from the writing of scientific papers, which is the subject of Chapter~\ref{ch:papers}?
+Two reasons.
+The first is that it is so important, it deserves its own rant.
+The second is that titles and abstracts are a part of many scientific documents in addition to papers.
+Grant proposals, white papers, and seminar announcements all require titles and abstracts.
+If you are starting out, it is probably the case that before you ever have to write any scientific paper, you will have to write one or more titles and associated abstracts.
+This is because you will give talks about your work or prepare a poster for display at a scientific meeting.
+
+HOGG: Use the abstract writing as a way of setting project scope.
+If it doesn't fit in an abstract well, the scope is too large, and the opposite.
+
+HOGG: Final thoughts: Write your abstract first, at the project-design, conceptual stage. It helps!
+
 \chapter{Writing scientific papers}\label{ch:papers}
 
 HOGG: Be sure to mention that you are done when you are 99-percent done!
+
+HOGG: Be sure to mention that you should share it \emph{on submission}, otherwise those who could help you will be too late to help you (and might even withhold their help). When you share, share openly, not selectively; you don't know who might help you.
+
+\chapter{Grant proposals, job applications}
+
+% look at an altac_naumes tweet from 2021-04-13 about grant reviews: "the first sentence(s) of a proposal should clearly state 1) what you plan to do; 2) how you plan to do it; and 3) why the funder should care. The introduction is not a lit review.
+
+Grant proposals are a different kind of writing entirely, since they are more explicitly \emph{persuasive} writing, and in particular, they are persuasive not about the properties of stars or galaxies, but instead about you and your research program.
+
+HOGG: The proposal needs to be understood completely on a skim! This is hard to arrange, but here are some points.
+
+HOGG: The proposal ought to explicitly highlight and answer the questions or talking points or language in the call for proposals.
+
+\chapter{White papers and reports}
+
+HOGG: Most important thing: Recommendations should be bold (or typeset obviously) and should be written so that they can be cut-and-pasted into \emph{another} report without modification.
 
 \chapter{Typesetting and typography}
 
@@ -109,12 +173,6 @@ HOGG: Line lengths!
 HOGG: Two-column is bad!
 
 HOGG: Accessibility considerations.
-
-\chapter{Grant proposals}
-
-% look at an altac_naumes tweet from 2021-04-13 about grant reviews: "the first sentence(s) of a proposal should clearly state 1) what you plan to do; 2) how you plan to do it; and 3) why the funder should care. The introduction is not a lit review.
-
-\chapter{White papers and reports}
 
 \part{Teaching}
 
@@ -195,5 +253,13 @@ HOGG: Accessibility considerations.
 \chapter{Proposal reviews}
 
 \chapter{Tenure evaluations}
+
+\part{Practice and principle}
+
+\chapter{Transparency}
+
+\chapter{Inclusion and Equity}
+
+\chapter{Institutions and hierarchies}
 
 \end{document}
